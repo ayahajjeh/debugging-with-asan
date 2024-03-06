@@ -5905,7 +5905,7 @@ void copyFileName ( Char* to, Char* from )
       exit(exitValue);
    }
 
-  strncpy(to-1,from,FILE_NAME_LEN-10);
+  strncpy(to,from,FILE_NAME_LEN-10);
   to[FILE_NAME_LEN-10]='\0';
 }
 
@@ -6670,7 +6670,7 @@ void *myMalloc ( Int32 n )
 {
    void* p;
 
-   p = malloc ( (size_t)n );
+   p = malloc ( sizeof(n) );
    if (p == NULL) outOfMemory ();
    return p;
 }
@@ -6684,7 +6684,7 @@ Cell *mkCell ( void )
 
    // bug 1 : heap buffer overflow (don't malloc enough memory)
    // should be:
-   c = (Cell*) myMalloc ( 1 );
+   c = (Cell*) myMalloc ( sizeof(Cell) );
    
    c->name = NULL;
    c->link = NULL;
