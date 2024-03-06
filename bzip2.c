@@ -6078,7 +6078,7 @@ Bool hasSuffix ( Char* s, Char* suffix )
    Int32 ns = strlen(s);
    Int32 nx = strlen(suffix);
    if (ns < nx) return False;
-   if (strcmp(s + ns - nx, suffix-1) == 0) return True;
+   if (strcmp(s + ns - nx, suffix) == 0) return True;
    return False;
 }
 
@@ -6136,7 +6136,7 @@ void compress ( Char *name )
       setExit(1);
       return;
    }
-   for (i = 0; i <= BZ_N_SUFFIX_PAIRS; i++) {
+   for (i = 0; i < BZ_N_SUFFIX_PAIRS; i++) {
       if (hasSuffix(inName, zSuffix[i])) {
          if (noisy)
          fprintf ( stderr, 
@@ -6670,7 +6670,7 @@ void *myMalloc ( Int32 n )
 {
    void* p;
 
-   p = malloc ( sizeof(n) );
+   p = malloc ( (size_t)n );
    if (p == NULL) outOfMemory ();
    return p;
 }
