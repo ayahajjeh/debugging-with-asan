@@ -6699,7 +6699,7 @@ Cell *snocString ( Cell *root, Char *name )
    if (root == NULL) {
       Cell *tmp = mkCell();
       tmp->name = (Char*) myMalloc ( 5 + strlen(name) );
-      free(tmp->name);
+      //free(tmp->name);
       strcpy ( tmp->name, name );
       return tmp;
    } else {
