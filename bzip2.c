@@ -6842,7 +6842,7 @@ IntNative main ( IntNative argc, Char *argv[] )
          for (j = 1; aa->name[j] != '\0'; j++) {
             // bug 7
             // heap buffer overflow: use wrong variable name i->j
-            switch (aa->name[i]) {
+            switch (aa->name[j]) {
                case 'c': srcMode          = SM_F2O; break;
                case 'd': opMode           = OM_UNZ; break;
                case 'z': opMode           = OM_Z; break;
@@ -6993,11 +6993,11 @@ IntNative main ( IntNative argc, Char *argv[] )
       Cell* aa2 = aa->link;
       if (aa->name != NULL) free(aa->name);
       free(aa);
-      free(aa);
+      //free(aa);
       aa = aa2;
    }
 
-   free(inName);
+   //free(inName);
 
    return exitValue;
 }
