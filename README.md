@@ -1,5 +1,5 @@
 # Debugging with AddressSanitizer (ASan)
-`This was my Project 4 for CS69.17 Software Security class at Dartmouth College.`
+`This was my Project 4 for the CS69.17 Software Security class at Dartmouth College.`
 
 In this project, I use ASan to find bugs within a file compression program bzip2.c.
 
